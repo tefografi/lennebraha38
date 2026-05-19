@@ -9,7 +9,8 @@ app.config['SECRET_KEY'] = 'teknofest_api_projem_2026'
 
 # --- SUPABASE VERİTABANI BAĞLANTI AYARI ---
 # Faruk, aşağıdaki satırda PROJE_KODUNU_BURAYA_YAZ ve SIFRENIZI_BURAYA_YAZ yerlerini kendi bilgilerinle doldur!
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql+psycopg2://postgres.eqgqbkqjszkiokktamhi:lennebraha38@aws-0-eu-central-1.pooler.supabase.com:6543/postgres'
+# postgresql+psycopg2 yerine postgresql+psycopg yazıyoruz Faruk:
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql+psycopg://postgres.eqgqbkqjszkiokktamhi:lennebraha38@aws-0-eu-central-1.pooler.supabase.com:6543/postgres'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
