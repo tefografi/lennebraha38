@@ -2688,10 +2688,6 @@
             <span class="ilan-tag">Akıllı Ulaşım</span>
             <span class="ilan-tag">Siber Güvenlik</span>
           </div>
-          <div style="display:flex;gap:1.5rem;font-size:0.78rem;color:var(--text-dim);margin-bottom:1rem;">
-            <span>📅 Son başvuru: <b style="color:var(--warning)">15 Mayıs 2026</b></span>
-            <span>👥 2–6 kişi/takım</span>
-          </div>
           <span class="card-link" onclick="openKategoriModal('teknofest')">
             Kategorileri Gör
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
@@ -2708,10 +2704,6 @@
             <span class="ilan-tag">2209-B (Sanayi)</span>
             <span class="ilan-tag">Olimpiyat</span>
           </div>
-          <div style="display:flex;gap:1.5rem;font-size:0.78rem;color:var(--text-dim);margin-bottom:1rem;">
-            <span>📅 Bölge finali: <b style="color:var(--success)">22 Mayıs 2026</b></span>
-            <span>👥 Bireysel veya 2 kişi</span>
-          </div>
           <span class="card-link" onclick="openKategoriModal('tubitak')">
             Kategorileri Gör
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
@@ -2727,10 +2719,6 @@
             <span class="ilan-tag">Google Hash Code</span>
             <span class="ilan-tag">Codeforces</span>
             <span class="ilan-tag">LeetCode Contest</span>
-          </div>
-          <div style="display:flex;gap:1.5rem;font-size:0.78rem;color:var(--text-dim);margin-bottom:1rem;">
-            <span>📅 ICPC Seçmesi: <b style="color:var(--warning)">3 Haziran 2026</b></span>
-            <span>👥 3 kişi/takım</span>
           </div>
           <span class="card-link" onclick="openKategoriModal('yazilim')">
             Kategorileri Gör
@@ -2749,10 +2737,6 @@
             <span class="ilan-tag">NLP</span>
             <span class="ilan-tag">Bilgisayarlı Görü</span>
           </div>
-          <div style="display:flex;gap:1.5rem;font-size:0.78rem;color:var(--text-dim);margin-bottom:1rem;">
-            <span>🏅 Ödül havuzu: <b style="color:var(--accent)">$50,000+</b></span>
-            <span>👥 1–5 kişi</span>
-          </div>
           <span class="card-link" onclick="openKategoriModal('yapay-zeka')">
             Kategorileri Gör
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
@@ -2770,10 +2754,6 @@
             <span class="ilan-tag">Binary Exploit</span>
             <span class="ilan-tag">Kriptografi</span>
           </div>
-          <div style="display:flex;gap:1.5rem;font-size:0.78rem;color:var(--text-dim);margin-bottom:1rem;">
-            <span>📅 Ulusal CTF: <b style="color:var(--primary)">18 Haziran 2026</b></span>
-            <span>👥 1–4 kişi</span>
-          </div>
           <span class="card-link" onclick="openKategoriModal('siber')">
             Kategorileri Gör
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
@@ -2789,10 +2769,6 @@
             <span class="ilan-tag">Hackathon</span>
             <span class="ilan-tag">Sosyal Girişim</span>
             <span class="ilan-tag">Prototip</span>
-          </div>
-          <div style="display:flex;gap:1.5rem;font-size:0.78rem;color:var(--text-dim);margin-bottom:1rem;">
-            <span>🏆 Sürekli açık yarışmalar</span>
-            <span>👥 Esnek takım yapısı</span>
           </div>
           <span class="card-link" onclick="openKategoriModal('tasarim')">
             Kategorileri Gör
@@ -5177,98 +5153,98 @@
     var KD = {
       teknofest: {
         emoji:'🚀', title:'Teknofest 2026 — Kategoriler', subtitle:'50+ yarışma kategorisi · Ankara',
-        url:'https://teknofest.org', footer:'Son başvuru: 15 Mayıs 2026 · Takım: 2–6 kişi',
+        url:'https://teknofest.org',
         cats:[
-          {e:'✈️', n:'İnsansız Hava Aracı (İHA)', d:'Sabit kanatlı, döner kanatlı ve multirotor kategorileri', t:'Açık', info:'Takım: 2–6 kişi · Son başvuru: 15 Mayıs 2026'},
-          {e:'🚁', n:'İHA Sürü Sistemi', d:'Çoklu otonom araç koordinasyonu ve görev tamamlama', t:'Açık', info:'Takım: 3–6 kişi · Uçuş gösterimi zorunlu'},
-          {e:'🚀', n:'Model Roket', d:'Yüksek irtifa, hassas iniş ve yük taşıma kategorileri', t:'Açık', info:'Takım: 2–6 kişi · Teknik rapor gerekli'},
-          {e:'🤖', n:'Yapay Zeka', d:'Görüntü işleme, NLP ve otonom sistem projeleri', t:'Açık', info:'Takım: 2–5 kişi · Demo sunumu zorunlu'},
-          {e:'🏥', n:'Sağlıkta Yapay Zeka', d:'Tıbbi görüntüleme, teşhis ve hasta takip sistemleri', t:'Açık', info:'Takım: 2–5 kişi · Etik onay gerekebilir'},
-          {e:'🚗', n:'Akıllı Ulaşım', d:'Otonom araç ve trafik yönetim sistemleri', t:'Açık', info:'Takım: 3–6 kişi · Simülasyon testi var'},
-          {e:'🔐', n:'Siber Güvenlik', d:'Saldırı tespiti ve güvenli yazılım geliştirme', t:'Açık', info:'Takım: 2–4 kişi · CTF formatı'},
-          {e:'🌊', n:'İnsansız Deniz Aracı', d:'Su üstü ve su altı otonom araçlar', t:'Açık', info:'Takım: 3–6 kişi · Su havuzu testi var'},
-          {e:'🛰️', n:'Uydu Teknolojileri', d:'CubeSat tasarımı ve uzay sistemleri', t:'Açık', info:'Takım: 3–6 kişi · CDR/PDR aşamaları var'},
-          {e:'♻️', n:'Çevre & Enerji', d:'Yenilenebilir enerji ve çevre izleme projeleri', t:'Açık', info:'Takım: 2–5 kişi · Prototip zorunlu'},
-          {e:'🌾', n:'Tarım Teknolojileri', d:'Akıllı tarım, sulama ve ürün izleme sistemleri', t:'Açık', info:'Takım: 2–5 kişi · Saha testi gerekli'},
-          {e:'🏗️', n:'Akıllı Şehir', d:'IoT tabanlı kentsel yönetim çözümleri', t:'Açık', info:'Takım: 2–5 kişi · Belediye iş birliği avantajlı'},
-          {e:'🔬', n:'Malzeme Bilimi', d:'İleri malzeme tasarımı ve üretim teknolojileri', t:'Açık', info:'Takım: 2–4 kişi · Lab testi raporu istenir'},
-          {e:'💊', n:'Biyomedikal', d:'Protez, implant ve rehabilitasyon cihazları', t:'Açık', info:'Takım: 2–5 kişi · Klinik test avantajlı'},
-          {e:'🏎️', n:'Elektrikli Araç', d:'Formul-E tipi elektrikli araç tasarımı', t:'Açık', info:'Takım: 4–8 kişi · Pist testi zorunlu'},
+          {e:'✈️', n:'İnsansız Hava Aracı (İHA)', d:'Sabit kanatlı, döner kanatlı ve multirotor kategorileri', t:'Açık'},
+          {e:'🚁', n:'İHA Sürü Sistemi', d:'Çoklu otonom araç koordinasyonu ve görev tamamlama', t:'Açık'},
+          {e:'🚀', n:'Model Roket', d:'Yüksek irtifa, hassas iniş ve yük taşıma kategorileri', t:'Açık'},
+          {e:'🤖', n:'Yapay Zeka', d:'Görüntü işleme, NLP ve otonom sistem projeleri', t:'Açık'},
+          {e:'🏥', n:'Sağlıkta Yapay Zeka', d:'Tıbbi görüntüleme, teşhis ve hasta takip sistemleri', t:'Açık'},
+          {e:'🚗', n:'Akıllı Ulaşım', d:'Otonom araç ve trafik yönetim sistemleri', t:'Açık'},
+          {e:'🔐', n:'Siber Güvenlik', d:'Saldırı tespiti ve güvenli yazılım geliştirme', t:'Açık'},
+          {e:'🌊', n:'İnsansız Deniz Aracı', d:'Su üstü ve su altı otonom araçlar', t:'Açık'},
+          {e:'🛰️', n:'Uydu Teknolojileri', d:'CubeSat tasarımı ve uzay sistemleri', t:'Açık'},
+          {e:'♻️', n:'Çevre & Enerji', d:'Yenilenebilir enerji ve çevre izleme projeleri', t:'Açık'},
+          {e:'🌾', n:'Tarım Teknolojileri', d:'Akıllı tarım, sulama ve ürün izleme sistemleri', t:'Açık'},
+          {e:'🏗️', n:'Akıllı Şehir', d:'IoT tabanlı kentsel yönetim çözümleri', t:'Açık'},
+          {e:'🔬', n:'Malzeme Bilimi', d:'İleri malzeme tasarımı ve üretim teknolojileri', t:'Açık'},
+          {e:'💊', n:'Biyomedikal', d:'Protez, implant ve rehabilitasyon cihazları', t:'Açık'},
+          {e:'🏎️', n:'Elektrikli Araç', d:'Formul-E tipi elektrikli araç tasarımı', t:'Açık'},
         ]
       },
       tubitak: {
         emoji:'🔬', title:'TÜBİTAK — Programlar & Olimpiyatlar', subtitle:'Araştırma projeleri ve olimpiyatlar · 2026',
-        url:'https://tubitak.gov.tr', footer:'Bölge finali: 22 Mayıs 2026 · Bireysel veya 2 kişi',
+        url:'https://tubitak.gov.tr',
         cats:[
-          {e:'🏫', n:'2204-A Lise Proje', d:'Lise öğrencileri ulusal proje yarışması', t:'Açık', c:'green', info:'Bireysel veya 2 kişi · Bölge finali: 22 Mayıs 2026'},
-          {e:'🎓', n:'2209-A Üniversite', d:'Lisans öğrencileri araştırma proje desteği', t:'Açık', c:'green', info:'Bireysel · 3.000–15.000 ₺ destek'},
-          {e:'🏭', n:'2209-B Sanayi', d:'Sanayi iş birliği ile lisans proje desteği', t:'Açık', c:'green', info:'Bireysel · Şirket sponsorluğu şart'},
-          {e:'🧪', n:'Kimya Olimpiyatı', d:'Ulusal kimya yarışması ve IChO seçmesi', t:'Açık', info:'Bireysel · Lise öğrencisi olmalı'},
-          {e:'🔢', n:'Matematik Olimpiyatı', d:'Ulusal yarışma ve IMO seçmesi', t:'Açık', info:'Bireysel · Yazılı + sözlü aşamalar'},
-          {e:'⚛️', n:'Fizik Olimpiyatı', d:'IPhO seçmeleri ve ulusal final', t:'Açık', info:'Bireysel · Deney + teori sınavları'},
-          {e:'💻', n:'Bilgisayar Olimpiyatı', d:'IOI seçmeleri ve algoritmik problem çözme', t:'Açık', info:'Bireysel · Online seçme aşaması var'},
-          {e:'🌱', n:'Biyoloji Olimpiyatı', d:'IBO seçmeleri ve ulusal final', t:'Açık', info:'Bireysel · Lab becerisi değerlendirilir'},
-          {e:'🌍', n:'Coğrafya Olimpiyatı', d:'iGEO seçmeleri ve ulusal yarışma', t:'Açık', info:'Bireysel · Harita yorumlama sınavı var'},
-          {e:'🔭', n:'Astronomi Olimpiyatı', d:'IOAA seçmeleri ve gözlemevi projeleri', t:'Açık', info:'Bireysel · Gözlem + hesap aşamaları'},
-          {e:'🧬', n:'Bilim Fuarı (ISEF)', d:'Intel ISEF seçmeleri için ulusal proje yarışması', t:'Açık', info:'Bireysel · Sunum + poster zorunlu'},
-          {e:'📐', n:'Teknoloji Yarışması', d:'Ortaokul düzeyinde teknoloji tasarım yarışması', t:'Açık', info:'Bireysel veya 2 kişi · Prototip istenir'},
+          {e:'🏫', n:'2204-A Lise Proje', d:'Lise öğrencileri ulusal proje yarışması', t:'Açık', c:'green'},
+          {e:'🎓', n:'2209-A Üniversite', d:'Lisans öğrencileri araştırma proje desteği', t:'Açık', c:'green'},
+          {e:'🏭', n:'2209-B Sanayi', d:'Sanayi iş birliği ile lisans proje desteği', t:'Açık', c:'green'},
+          {e:'🧪', n:'Kimya Olimpiyatı', d:'Ulusal kimya yarışması ve IChO seçmesi', t:'Açık'},
+          {e:'🔢', n:'Matematik Olimpiyatı', d:'Ulusal yarışma ve IMO seçmesi', t:'Açık'},
+          {e:'⚛️', n:'Fizik Olimpiyatı', d:'IPhO seçmeleri ve ulusal final', t:'Açık'},
+          {e:'💻', n:'Bilgisayar Olimpiyatı', d:'IOI seçmeleri ve algoritmik problem çözme', t:'Açık'},
+          {e:'🌱', n:'Biyoloji Olimpiyatı', d:'IBO seçmeleri ve ulusal final', t:'Açık'},
+          {e:'🌍', n:'Coğrafya Olimpiyatı', d:'iGEO seçmeleri ve ulusal yarışma', t:'Açık'},
+          {e:'🔭', n:'Astronomi Olimpiyatı', d:'IOAA seçmeleri ve gözlemevi projeleri', t:'Açık'},
+          {e:'🧬', n:'Bilim Fuarı (ISEF)', d:'Intel ISEF seçmeleri için ulusal proje yarışması', t:'Açık'},
+          {e:'📐', n:'Teknoloji Yarışması', d:'Ortaokul düzeyinde teknoloji tasarım yarışması', t:'Açık'},
         ]
       },
       yazilim: {
         emoji:'💻', title:'Yazılım & Algoritma Yarışmaları', subtitle:'Küresel platformlar ve ulusal yarışmalar · 2026',
-        url:'https://icpc.global', footer:'ICPC Seçmesi: 3 Haziran 2026 · Takım: 3 kişi',
+        url:'https://icpc.global',
         cats:[
-          {e:'🏆', n:'ACM-ICPC', d:'Uluslararası üniversiteler arası programlama şampiyonası', t:'Açık', info:'Takım: 3 kişi · Seçme: 3 Haziran 2026'},
-          {e:'🔥', n:'Codeforces Rounds', d:'Div 1–4 seviyeli yarışmalar, küresel rating sistemi', t:'Sürekli', c:'green', info:'Bireysel · Her hafta yeni tur'},
-          {e:'💡', n:'LeetCode Contest', d:'Haftalık ve iki haftada bir gerçekleşen yarışmalar', t:'Haftalık', c:'green', info:'Bireysel · Global sıralama sistemi'},
-          {e:'🌐', n:'Google Hash Code', d:'Mühendislik optimizasyon problemi, takım formatı', t:'Yıllık', c:'warn', info:'Takım: 2–4 kişi · Yıllık 1 kez'},
-          {e:'🎯', n:'Google Code Jam', d:'Bireysel global programlama yarışması', t:'Yıllık', c:'warn', info:'Bireysel · Ön eleme + final aşamaları'},
-          {e:'🐍', n:'AtCoder', d:'Japonya kökenli uluslararası yarışma platformu', t:'Haftalık', c:'green', info:'Bireysel · ABC/ARC/AGC formatları'},
-          {e:'📊', n:'Meta Hacker Cup', d:"Meta'nın yıllık küresel programlama yarışması", t:'Yıllık', c:'warn', info:'Bireysel · Online + onsite final'},
-          {e:'🧩', n:'Advent of Code', d:'Aralık ayı her gün yeni bulmaca — 25 gün', t:'Yıllık', c:'warn', info:'Bireysel · Her Aralık ayı başlar'},
+          {e:'🏆', n:'ACM-ICPC', d:'Uluslararası üniversiteler arası programlama şampiyonası', t:'Açık'},
+          {e:'🔥', n:'Codeforces Rounds', d:'Div 1–4 seviyeli yarışmalar, küresel rating sistemi', t:'Sürekli', c:'green'},
+          {e:'💡', n:'LeetCode Contest', d:'Haftalık ve iki haftada bir gerçekleşen yarışmalar', t:'Haftalık', c:'green'},
+          {e:'🌐', n:'Google Hash Code', d:'Mühendislik optimizasyon problemi, takım formatı', t:'Yıllık', c:'warn'},
+          {e:'🎯', n:'Google Code Jam', d:'Bireysel global programlama yarışması', t:'Yıllık', c:'warn'},
+          {e:'🐍', n:'AtCoder', d:'Japonya kökenli uluslararası yarışma platformu', t:'Haftalık', c:'green'},
+          {e:'📊', n:'Meta Hacker Cup', d:"Meta'nın yıllık küresel programlama yarışması", t:'Yıllık', c:'warn'},
+          {e:'🧩', n:'Advent of Code', d:'Aralık ayı her gün yeni bulmaca — 25 gün', t:'Yıllık', c:'warn'},
         ]
       },
       'yapay-zeka': {
         emoji:'🤖', title:'Yapay Zeka & Veri Yarışmaları', subtitle:'ML, DL, NLP, Bilgisayarlı Görü · 2026',
-        url:'https://kaggle.com/competitions', footer:'Ödül havuzu: $50,000+ · Takım: 1–5 kişi',
+        url:'https://kaggle.com/competitions',
         cats:[
-          {e:'🏅', n:'Kaggle Competitions', d:'Featured, research ve playground yarışma kategorileri', t:'Sürekli', c:'green', info:'Takım: 1–5 kişi · Ödül: $50,000+'},
-          {e:'👁️', n:'Bilgisayarlı Görü', d:'Nesne tespiti, segmentasyon, görüntü sınıflandırma', t:'Açık', info:'Takım: 1–5 kişi · GPU kaynağı gerekli'},
-          {e:'🗣️', n:'Doğal Dil İşleme', d:'Metin sınıflandırma, soru-cevap, çeviri sistemleri', t:'Açık', info:'Takım: 1–5 kişi · LLM fine-tuning içerir'},
-          {e:'📈', n:'Zaman Serisi Analizi', d:'Tahminleme modelleri ve anomali tespiti', t:'Açık', info:'Takım: 1–5 kişi · İstatistik bilgisi gerekli'},
-          {e:'🎮', n:'Pekiştirmeli Öğrenme', d:'Oyun ve simülasyon ortamlarında ajan eğitimi', t:'Açık', info:'Takım: 1–3 kişi · Simülasyon ortamı şart'},
-          {e:'🧬', n:'Biyoinformatik YZ', d:'Protein yapısı tahmini ve genomik analiz', t:'Açık', info:'Takım: 1–4 kişi · Biyoloji + ML bilgisi'},
-          {e:'📡', n:'Öneri Sistemleri', d:'Collaborative ve content-based filtering projeleri', t:'Açık', info:'Takım: 1–5 kişi · Büyük veri seti kullanılır'},
-          {e:'🔍', n:'Bilgi Grafı & RAG', d:'Varlık ilişkisi çıkarımı ve RAG sistemleri', t:'Açık', info:'Takım: 1–4 kişi · NLP + Graf bilgisi gerekli'},
+          {e:'🏅', n:'Kaggle Competitions', d:'Featured, research ve playground yarışma kategorileri', t:'Sürekli', c:'green'},
+          {e:'👁️', n:'Bilgisayarlı Görü', d:'Nesne tespiti, segmentasyon, görüntü sınıflandırma', t:'Açık'},
+          {e:'🗣️', n:'Doğal Dil İşleme', d:'Metin sınıflandırma, soru-cevap, çeviri sistemleri', t:'Açık'},
+          {e:'📈', n:'Zaman Serisi Analizi', d:'Tahminleme modelleri ve anomali tespiti', t:'Açık'},
+          {e:'🎮', n:'Pekiştirmeli Öğrenme', d:'Oyun ve simülasyon ortamlarında ajan eğitimi', t:'Açık'},
+          {e:'🧬', n:'Biyoinformatik YZ', d:'Protein yapısı tahmini ve genomik analiz', t:'Açık'},
+          {e:'📡', n:'Öneri Sistemleri', d:'Collaborative ve content-based filtering projeleri', t:'Açık'},
+          {e:'🔍', n:'Bilgi Grafı & RAG', d:'Varlık ilişkisi çıkarımı ve RAG sistemleri', t:'Açık'},
         ]
       },
       siber: {
         emoji:'🔐', title:'Siber Güvenlik Yarışmaları', subtitle:'CTF, penetrasyon testi ve güvenlik araştırmaları · 2026',
-        url:'https://ctftime.org', footer:'Ulusal CTF Şampiyonası: 18 Haziran 2026 · Takım: 1–4 kişi',
+        url:'https://ctftime.org',
         cats:[
-          {e:'🏴', n:'CTF — Jeopardy', d:'Web, crypto, pwn, forensics, reverse engineering soruları', t:'Açık', info:'Takım: 1–4 kişi · ctftime.org üzerinden kayıt'},
-          {e:'⚔️', n:'Attack & Defense CTF', d:'Gerçek zamanlı takımlar arası saldırı-savunma formatı', t:'Açık', info:'Takım: 3–6 kişi · Ağ bilgisi şart'},
-          {e:'🕸️', n:'Web Güvenliği', d:'XSS, SQLi, SSRF ve OWASP Top 10 güvenlik açıkları', t:'Açık', info:'Bireysel/Takım · Burp Suite bilgisi avantajlı'},
-          {e:'💥', n:'Binary Exploitation', d:'Buffer overflow, ROP chain ve heap exploit teknikleri', t:'Açık', info:'Bireysel · Assembly/C bilgisi zorunlu'},
-          {e:'🔑', n:'Kriptografi', d:'RSA, AES, eliptik eğri kriptografi ve protokol açıkları', t:'Açık', info:'Bireysel · Matematiksel altyapı gerekli'},
-          {e:'🕵️', n:'Dijital Adli Bilişim', d:'Memory dump, disk imajı ve log analizi', t:'Açık', info:'Bireysel/Takım · Volatility/Autopsy araçları'},
-          {e:'📡', n:'Ağ Güvenliği', d:'Paket analizi, MITM saldırıları ve ağ savunması', t:'Açık', info:'Takım: 1–4 kişi · Wireshark bilgisi gerekli'},
-          {e:'📱', n:'Mobil Güvenlik', d:'Android / iOS uygulama güvenlik analizi', t:'Açık', info:'Bireysel · APK analiz araçları kullanılır'},
-          {e:'⚙️', n:'Tersine Mühendislik', d:'Statik ve dinamik malware analizi teknikleri', t:'Açık', info:'Bireysel · IDA Pro/Ghidra araçları gerekli'},
+          {e:'🏴', n:'CTF — Jeopardy', d:'Web, crypto, pwn, forensics, reverse engineering soruları', t:'Açık'},
+          {e:'⚔️', n:'Attack & Defense CTF', d:'Gerçek zamanlı takımlar arası saldırı-savunma formatı', t:'Açık'},
+          {e:'🕸️', n:'Web Güvenliği', d:'XSS, SQLi, SSRF ve OWASP Top 10 güvenlik açıkları', t:'Açık'},
+          {e:'💥', n:'Binary Exploitation', d:'Buffer overflow, ROP chain ve heap exploit teknikleri', t:'Açık'},
+          {e:'🔑', n:'Kriptografi', d:'RSA, AES, eliptik eğri kriptografi ve protokol açıkları', t:'Açık'},
+          {e:'🕵️', n:'Dijital Adli Bilişim', d:'Memory dump, disk imajı ve log analizi', t:'Açık'},
+          {e:'📡', n:'Ağ Güvenliği', d:'Paket analizi, MITM saldırıları ve ağ savunması', t:'Açık'},
+          {e:'📱', n:'Mobil Güvenlik', d:'Android / iOS uygulama güvenlik analizi', t:'Açık'},
+          {e:'⚙️', n:'Tersine Mühendislik', d:'Statik ve dinamik malware analizi teknikleri', t:'Açık'},
         ]
       },
       tasarim: {
         emoji:'🎨', title:'Tasarım & İnovasyon Yarışmaları', subtitle:'UI/UX, Hackathon, Girişimcilik · 2026',
-        url:'https://behance.net', footer:'Sürekli açık yarışmalar · Esnek takım yapısı',
+        url:'https://behance.net',
         cats:[
-          {e:'🖥️', n:'UI/UX Tasarım', d:'Kullanıcı arayüzü ve deneyim tasarım yarışmaları', t:'Açık', info:'Bireysel/Takım · Figma portfolyosu gerekli'},
-          {e:'⚡', n:'Hackathon', d:'24–72 saatlik yoğun ürün geliştirme yarışmaları', t:'Sürekli', c:'green', info:'Takım: 3–5 kişi · devpost.com üzerinden kayıt'},
-          {e:'🌍', n:'Sosyal Girişim', d:'Sosyal etki odaklı inovasyon ve girişimcilik projeleri', t:'Açık', info:'Takım: 2–5 kişi · İş planı zorunlu'},
-          {e:'🛠️', n:'Prototip & Makerspace', d:'Donanım prototipleme ve Fab Lab yarışmaları', t:'Açık', info:'Takım: 2–6 kişi · Fiziksel prototip istenir'},
-          {e:'📱', n:'Mobil Uygulama', d:'iOS ve Android uygulama tasarım yarışmaları', t:'Açık', info:'Takım: 1–4 kişi · Demo APK/IPA gerekli'},
-          {e:'🎬', n:'Motion Design', d:'Animasyon ve görsel efekt yarışmaları', t:'Açık', info:'Bireysel · After Effects/Blender bilgisi'},
-          {e:'🏛️', n:'Mimarlık & Kentsel', d:'Konsept tasarım ve kentsel dönüşüm projeleri', t:'Açık', info:'Bireysel/Takım · Çizim + maket istenir'},
-          {e:'♻️', n:'Sürdürülebilir Tasarım', d:'Çevre dostu ürün ve sistem tasarımı yarışmaları', t:'Açık', info:'Bireysel/Takım · LCA analizi avantajlı'},
+          {e:'🖥️', n:'UI/UX Tasarım', d:'Kullanıcı arayüzü ve deneyim tasarım yarışmaları', t:'Açık'},
+          {e:'⚡', n:'Hackathon', d:'24–72 saatlik yoğun ürün geliştirme yarışmaları', t:'Sürekli', c:'green'},
+          {e:'🌍', n:'Sosyal Girişim', d:'Sosyal etki odaklı inovasyon ve girişimcilik projeleri', t:'Açık'},
+          {e:'🛠️', n:'Prototip & Makerspace', d:'Donanım prototipleme ve Fab Lab yarışmaları', t:'Açık'},
+          {e:'📱', n:'Mobil Uygulama', d:'iOS ve Android uygulama tasarım yarışmaları', t:'Açık'},
+          {e:'🎬', n:'Motion Design', d:'Animasyon ve görsel efekt yarışmaları', t:'Açık'},
+          {e:'🏛️', n:'Mimarlık & Kentsel', d:'Konsept tasarım ve kentsel dönüşüm projeleri', t:'Açık'},
+          {e:'♻️', n:'Sürdürülebilir Tasarım', d:'Çevre dostu ürün ve sistem tasarımı yarışmaları', t:'Açık'},
         ]
       }
     };
@@ -5280,7 +5256,7 @@
       document.getElementById('km-title').textContent = d.title;
       document.getElementById('km-subtitle').textContent = d.subtitle;
       document.getElementById('km-count').textContent = d.cats.length;
-      document.getElementById('km-footer-text').textContent = d.footer;
+      document.getElementById('km-footer-text').textContent = '';
 
       var html = '';
       for (var i = 0; i < d.cats.length; i++) {
@@ -5292,10 +5268,6 @@
           '<div class="km-card-desc">' + c.d + '</div>' +
           '<div class="km-card-footer">' +
             '<span class="km-card-tag ' + tagClass + '">' + c.t + '</span>' +
-            '<span class="km-info-text">' +
-              '<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:3px;"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>' +
-              (c.info || 'Detaylar için resmi siteyi ziyaret edin') +
-            '</span>' +
           '</div>' +
           '</div>';
       }
