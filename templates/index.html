@@ -5063,20 +5063,7 @@
       gap: 0.8rem;
     }
     #km-footer-text { font-size: 0.79rem; color: #64748b; }
-    #km-site-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      background: linear-gradient(135deg, #3b82f6, #2563eb);
-      color: white;
-      padding: 0.6rem 1.3rem;
-      border-radius: 10px;
-      font-size: 0.82rem;
-      font-weight: 700;
-      text-decoration: none;
-      transition: transform 0.18s, box-shadow 0.18s;
-    }
-    #km-site-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 22px rgba(59,130,246,0.45); }
+
 
     /* ===== SSS ===== */
     #sss { padding: 6rem 0; }
@@ -5181,10 +5168,6 @@
       <div id="km-grid"></div>
       <div id="km-footer">
         <span id="km-footer-text"></span>
-        <a id="km-site-btn" href="#" target="_blank">
-          Resmi Siteye Git
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-        </a>
       </div>
     </div>
   </div>
@@ -5298,7 +5281,6 @@
       document.getElementById('km-subtitle').textContent = d.subtitle;
       document.getElementById('km-count').textContent = d.cats.length;
       document.getElementById('km-footer-text').textContent = d.footer;
-      document.getElementById('km-site-btn').href = d.url;
 
       var html = '';
       for (var i = 0; i < d.cats.length; i++) {
