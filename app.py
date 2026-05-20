@@ -1,130 +1,70 @@
-import os
+from flask import Flask, request, jsonify, render_template
 from datetime import datetime
-from flask import Flask, render_template, request, redirect, url_for, session
-from werkzeug.security import generate_password_hash, check_password_hash
+import pymongo
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'teknofest_api_projem_2026'
 
-# --- GEÇİCİ BELLEK (Veritabanı yerine verileri burada tutuyoruz) ---
-# Sunucu açık olduğu sürece veriler burada saklanır
-SAHTE_VERITABANI_USERS = {
-    # Test etmen için örnek bir kullanıcı bırakıyorum:
-    # Kullanıcı adı: faruk , Şifre: 123456
-    "faruk": generate_password_hash("123456", method='pbkdf2:sha256')
-}
-SAHTE_VERITABANI_LOGS = []
+# Kopyaladığın linki buraya yapıştır. <username> ve <password> kısımlarını kendi belirlediklerinle değiştir!
+MONGO_URI = "mongodb+srv://kullanici_adin:SIFREN@cluster0.xxxx.mongodb.net/?retryWrites=true&w=majority"
 
-# --- HER HAREKETİ OTOMATİK KAYDETME FONKSİYONU ---
-@app.before_request
-def log_every_action():
-    if request.endpoint and 'static' not in request.endpoint:
-        aktif_user = session.get('username', 'Giriş Yapılmamış Ziyaretçi')
-        sayfa = f"Sayfa İstendi: {request.path} [{request.method}]"
-        
-        yeni_log = {
-            "ip_address": request.remote_addr,
-            "username": aktif_user,
-            "action": sayfa,
-            "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-        }
-        SAHTE_VERITABANI_LOGS.append(yeni_log)
-
-# --- SİTE ROTASI (GİRİŞ - ÇIKIŞ - KAYIT) ---
+try:
+    client = pymongo.MongoClient(MONGO_URI)
+    db = client.lennebraha38_db
+    kullanicilar_tablosu = db.users
+    hareket_kayitlari_tablosu = db.logs
+    print("MongoDB Atlas bağlantısı başarılı!")
+except Exception as e:
+    print(f"Veritabanı bağlantı hatası: {e}")
 
 @app.route('/')
 def index():
-    if 'logged_in' in session:
-        return f"""
-        <h1>Sistem Başarıyla Çalışıyor, Faruk!</h1>
-        <p>Hoş geldiniz, {session['username']}!</p>
-        <p>Şu an veritabanı olmadan, belleğe kayıt yapılıyor.</p>
-        <br>
-        <a href='/logs'>Sistem Loglarını Gör (Yaptığın Hareketler)</a> | 
-        <a href='/logout'>Sistemden Çıkış Yap</a>
-        """
-    return redirect(url_for('login_page'))
+    # Şablon klasöründeki index.html dosyanı render eder
+    return render_template('index.html')
 
-@app.route('/login', methods=['GET', 'POST'])
-def login_page():
-    if request.method == 'POST':
-        username = request.form.get('username')
-        password = request.form.get('password')
+# 1. HAREKETLERİ İŞLEM ALTINA ALMA (LOG) API'Sİ
+@app.route('/api/log-ekle', methods=['POST'])
+def log_ekle():
+    try:
+        veri = request.json
+        kullanici_id = veri.get('userId', 'Anonim')
+        yapilan_islem = veri.get('islem')  # Örn: "Giriş Yapıldı", "Profil Güncellendi"
+        detay = veri.get('detay', '')
         
-        # Bellekte kullanıcı var mı kontrol et
-        hashed_password = SAHTE_VERITABANI_USERS.get(username)
+        log_verisi = {
+            "userId": kullanici_id,
+            "islem": yapilan_islem,
+            "detay": detay,
+            "tarih": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        }
         
-        if hashed_password and check_password_hash(hashed_password, password):
-            session['logged_in'] = True
-            session['username'] = username
-            
-            # Başarılı girişi logla
-            SAHTE_VERITABANI_LOGS.append({
-                "ip_address": request.remote_addr,
-                "username": username,
-                "action": "Başarılı Giriş Yaptı",
-                "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-            })
-            return redirect(url_for('index'))
-        else:
-            return "Kullanıcı adı veya şifre yanlış!", 401
-            
-    try: return render_template('index.html')
-    except: return render_template('login.html')
+        hareket_kayitlari_tablosu.insert_one(log_verisi)
+        return jsonify({"durum": "basarili"}), 200
+    except Exception as e:
+        return jsonify({"durum": "hata", "mesaj": str(e)}), 500
 
-@app.route('/register', methods=['POST'])
-def register():
-    username = request.form.get('username')
-    password = request.form.get('password')
-    
-    if not username or not password: 
-        return "Boş bırakılamaz!", 400
+# 2. KULLANICI PROFİLİNİ BULUTA KAYDETME API'Sİ
+@app.route('/api/profil-kaydet', methods=['POST'])
+def profil_kaydet():
+    try:
+        veri = request.json
+        kullanici_id = veri.get('userId')
+        profil_data = veri.get('profil')
         
-    if username in SAHTE_VERITABANI_USERS:
-        return "Bu kullanıcı adı zaten alınmış!", 400
+        # Kullanıcıyı güncelle veya yoksa yeni döküman oluştur (upsert=True)
+        kullanicilar_tablosu.update_one(
+            {"userId": kullanici_id},
+            {"$set": profil_data},
+            upsert=True
+        )
         
-    # Kullanıcıyı belleğe kaydet
-    SAHTE_VERITABANI_USERS[username] = generate_password_hash(password, method='pbkdf2:sha256')
-    
-    # Log kaydı ekle
-    SAHTE_VERITABANI_LOGS.append({
-        "ip_address": request.remote_addr,
-        "username": username,
-        "action": "Yeni Hesap Oluşturdu",
-        "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-            })
-    return "Kayıt başarılı! Şimdi giriş yapabilirsiniz.", 201
-
-# --- LOGLARI İZLEME SAYFASI ---
-@app.route('/logs')
-def show_logs():
-    if 'logged_in' not in session:
-        return redirect(url_for('login_page'))
-        
-    log_satirlari = ""
-    for log in reversed(SAHTE_VERITABANI_LOGS):
-        log_satirlari += f"<li>[{log['timestamp']}] IP: {log['ip_address']} | Kullanıcı: {log['username']} | Eylem: {log['action']}</li>"
-        
-    return f"""
-    <h1>Sistem Hareket Logları</h1>
-    <a href='/'>Ana Sayfaya Dön</a>
-    <hr>
-    <ul>
-        {log_satirlari}
-    </ul>
-    """
-
-@app.route('/logout')
-def logout():
-    if 'username' in session:
-        SAHTE_VERITABANI_LOGS.append({
-            "ip_address": request.remote_addr,
-            "username": session['username'],
-            "action": "Sistemden Çıkış Yaptı",
-            "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        # Profil güncellendiğinde bunu otomatik olarak loglara da işleyelim
+        hareket_kayitlari_tablosu.insert_one({
+            "userId": kullanici_id,
+            "islem": "Profil Güncelleme",
+            "detay": f"Kullanıcı profil bilgilerini ({profil_data.get('name')}) güncelledi.",
+            "tarih": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         })
-    session.clear()
-    return redirect(url_for('login_page'))
-
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000, debug=True)
+        
+        return jsonify({"durum": "basarili"}), 200
+    except Exception as e:
+        return jsonify({"durum": "hata", "mesaj": str(e)}), 500
