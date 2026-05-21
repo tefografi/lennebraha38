@@ -2,7 +2,19 @@ import os
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from dotenv import load_dotenv
+import sys
+import logging
 
+# Log seviyesini en temele çekip terminale basılmasını zorunlu kılıyoruz
+logging.basicConfig(stream=sys.stdout, level=logging.DEBUG)
+
+try:
+    # Veritabanı ve uygulama ayağa kalkma kodların buraya gelecek
+    uri = os.getenv("DATABASE_URL")
+    print(f"DEBUG: Çekilen URI Değeri: {uri}", flush=True) # Adresin gelip gelmediğini logda göreceğiz
+except Exception as e:
+    print(f"KRİTİK BAŞLANGIÇ HATASI: {str(e)}", flush=True)
+    logging.exception("Uygulama başlatılırken hata oluştu!")
 # .env dosyasını yükle
 load_dotenv()
 
