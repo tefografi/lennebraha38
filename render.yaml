@@ -1,6 +1,5 @@
 services:
   - type: web
     name: lennebraha-backend
-    runtime: php
-    buildCommand: ""
-    startCommand: ""
+    runtime: docker
+    plan: free
