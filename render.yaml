@@ -3,3 +3,16 @@ services:
     name: lennebraha-backend
     runtime: docker
     plan: free
+    envVars:
+      - key: DB_HOST
+        value: db.shvdsyclykgflyzgpdsi.supabase.co
+      - key: DB_PORT
+        value: "5432"
+      - key: DB_NAME
+        value: postgres
+      - key: DB_USER
+        value: postgres
+      - key: DB_PASS
+        sync: false
+      - key: CORS_ORIGIN
+        value: https://son-hali-gercekten.vercel.app

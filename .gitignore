@@ -1,0 +1,10 @@
+# Ortam değişkenleri — ASLA commit'leme!
+.env
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
